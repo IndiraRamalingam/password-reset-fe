@@ -1,7 +1,6 @@
 import React from 'react'
-import { BrowserRouter, Routes,Route } from 'react-router-dom'
-import NavBar from './components/NavBar';
-import Home from './components/Home';
+import { BrowserRouter, Routes,Route, Navigate } from 'react-router-dom'
+import Welcome from './components/Welcome';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
 import ForgotPassword from './components/ForgotPassword';
@@ -10,15 +9,14 @@ import ResetPassword from './components/ResetPassword';
 function App() {
   return (
     <BrowserRouter>
-    <div>     
-      
-        <NavBar />
-          <Routes>
-            <Route path='/' element={<Home />} />
+    <div> 
+          <Routes>   
+            <Route path='/welcome' element={<Welcome />} />
             <Route path='/signup' element={<SignUp />} />
             <Route path='/signin' element={<SignIn />} />
             <Route path='/forgot_password' element={<ForgotPassword />} />
             <Route path='/reset_password/:token' element={<ResetPassword />} />
+            <Route path="/" element={<Navigate to="/signin" replace />} />
           </Routes>
       
     </div>
