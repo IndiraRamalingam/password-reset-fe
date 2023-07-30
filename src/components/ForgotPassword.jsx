@@ -20,12 +20,11 @@ function ForgotPassword() {
       try{
           const response=await instance.authInstance.post('/forgot_password',{email});
           setInfo(`Password Reset Link has to sent to your Email Id - ${email}`)
-          console.log("YES")
+          setMsg('')
           }
           catch(error)
           {
             setMsg('Entered Email ID does not exists.')
-            console.log("YES")
           }
       }  
       else{
