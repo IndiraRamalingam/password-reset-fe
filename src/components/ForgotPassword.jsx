@@ -24,12 +24,12 @@ function ForgotPassword() {
           }
           catch(error)
           {
-            setMsg('Email does not exists')
+            setMsg('Entered Email ID does not exists.')
             console.log("YES")
           }
       }  
       else{
-        setMsg('Email is required to send Mail')
+        setMsg('Email is required to send the Reset Password Link')
       }
 }
 
@@ -69,6 +69,8 @@ function ForgotPassword() {
                     <br/><br/>
                     
                      <Link to="/signin">Back to SignIn</Link>
+                    <br/><br/>
+                     <p><b>Note:</b> You will receive the Reset Password form through the above mentioned link only. So, Kindly enter your valid Email.</p>
                 </div>
       </Form>
     </div>

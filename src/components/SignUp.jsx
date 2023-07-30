@@ -13,6 +13,7 @@ const[msg,setMsg]=useState('');
 const[info,setInfo]=useState('');
 const[infor,setInfor]=useState('');
 
+
 const handleSignup =(event) =>{
   event.preventDefault(); 
   signup({name,email,password})
@@ -25,6 +26,7 @@ const signup =async({name,email,password}) =>{
         const response = await instance.authInstance.post('/signup',{name,email,password});
         setInfo(`Hi ${name}!! Your account has been created successfully!  `)
         setInfor("Click here to Sign In")
+        setMsg('')
     }
     catch(error)
     {
@@ -32,18 +34,21 @@ const signup =async({name,email,password}) =>{
     }
   }
   else{
-    // if(email=="" && password=="" && name==""){
-    //       setMsg("Please enter your Username, Email and password")
-    //     }else if(email=="" && password==""){
-    //       setMsg("Please enter your Email and Password")
-    //     }else if(email=="" && name==""){
-    //       setMsg("Please enter your Username and Email")
-    //     }else if(password=="" && name==""){
-    //       setMsg("Please enter your Username and Password")
-    //     }else{
-    //       setMsg("Please fill the details")
-    //     }
-    setMsg("Please fill the details above")
+    if(email=="" && password=="" && name==""){
+          setMsg("Please fill the details above")
+        }else if(email=="" && password==""){
+          setMsg("Please enter your Email and Password")
+        }else if(email=="" && name==""){
+          setMsg("Please enter your Username and Email")
+        }else if(password=="" && name==""){
+          setMsg("Please enter your Username and Password")
+        }else if(name==""){
+          setMsg("Please enter your Name")}
+        else if(email==""){
+          setMsg("Please enter your Email")}
+          else{
+          setMsg("Please enter your Password")
+        }
      }
 }
 
@@ -70,7 +75,6 @@ const signup =async({name,email,password}) =>{
                     type='text'
                     value={name}
                     placeholder='User Name'
-                    required
                     onChange={(event) => setName(event.target.value) }
                     />
                 </Form.Group>
@@ -81,7 +85,6 @@ const signup =async({name,email,password}) =>{
                     type="email" 
                     placeholder="Enter Email"
                     value={email}
-                    required
                     onChange={(event) => setEmail(event.target.value) }
                     />
                 </Form.Group>
@@ -92,7 +95,6 @@ const signup =async({name,email,password}) =>{
                     type='password'
                     value={password}
                     placeholder='Password'
-                    required
                     onChange={(event) => setPassword(event.target.value) }
                     />
                 </Form.Group>

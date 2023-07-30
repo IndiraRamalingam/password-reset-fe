@@ -22,18 +22,24 @@ const handleUpdatesubmit = (event) =>{
     }
 }
 const resetpassword = async({password,token})=>{
-    try{
-        const response=await instance.authInstance.post('/reset_password/:token',{password,token});   
-        console.log(response.data.message);
-        console.log(response.data);
-        setInfo("Password has been updated successfully")
-        setInfor("Click here to Sign In")
-
-    }
-    catch(error)
+    if(password !="" && token!="")
     {
-        console.log("Reset Password Failed ", error);
-        setMsg("Password Reset Failed")
+        try{
+            const response=await instance.authInstance.post('/reset_password/:token',{password,token});   
+            console.log(response.data.message);
+            console.log(response.data);
+            setInfo("Password has been updated successfully")
+            setInfor("Click here to Sign In")
+    
+        }
+        catch(error)
+        {
+            console.log("Reset Password Failed ", error);
+            setMsg("Password Reset Failed")
+        }
+    }
+    else{
+        setMsg("Please enter the above fields")
     }
 }
  const formStyles = {
@@ -58,7 +64,6 @@ const resetpassword = async({password,token})=>{
                     type='password'
                     value={password}
                     placeholder='Password'
-                    required
                     onChange={(event) => setPassword(event.target.value) }
                     />
                 </Form.Group>
@@ -69,7 +74,6 @@ const resetpassword = async({password,token})=>{
                     type='password'
                     value={confirmpassword}
                     placeholder='Confirm Password'
-                    required
                     onChange={(event) => setConfirmpassword(event.target.value) }
                     />
                 </Form.Group>

@@ -34,14 +34,13 @@ function SignIn() {
     }
     else
     {
-        // if(email=="" && password==""){
-        //   setMsg("Please enter your Email and password")
-        // }else if(email==""){
-        //   setMsg("Email is required")
-        // }else{
-        //   setMsg("Password cannot be empty")
-        // }
-        setMsg("Please fill the details above ")
+        if(email=="" && password==""){
+          setMsg("Please enter your Email and password")
+        }else if(email==""){
+          setMsg("Email is required")
+        }else{
+          setMsg("Password cannot be empty")
+        }
     }  
   }
 
@@ -68,7 +67,6 @@ function SignIn() {
                     type="email" 
                     placeholder="Enter Email"
                     value={email}
-                    required
                     onChange={(event) => setEmail(event.target.value) }
                     />
                 </Form.Group>
@@ -79,7 +77,6 @@ function SignIn() {
                     type='password'
                     value={password}
                     placeholder='Password'
-                    required
                     onChange={(event) => setPassword(event.target.value) }
                     />
                 </Form.Group>
