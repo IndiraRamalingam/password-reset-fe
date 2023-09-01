@@ -55,6 +55,7 @@ function SignIn() {
 
     return (
       <>
+       <div className='container-fluid'>
        <h3 className="mb-5 " style={{color:"rgb(225, 222, 222)",'fontWeight':'bolder','textAlign':'center','fontSize':'45px','marginTop':'-50px'}}>Password Reset App</h3>
         <div className="mx-auto col-10 col-md-8 col-lg-4 mt-5" style={formStyles}>
             <Form onSubmit={handleSignin}>
@@ -95,6 +96,7 @@ function SignIn() {
                     <p>New User? <Link to="/signup">Sign Up</Link></p>
                 </div>
               </Form>           
+        </div>
         </div>
       </>
     )
