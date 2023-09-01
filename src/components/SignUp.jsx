@@ -63,6 +63,8 @@ const signup =async({name,email,password}) =>{
 
   return (
     <>
+       <div className='container-fluid'>
+       <h3 className="mb-5 " style={{color:"whitesmoke",'fontWeight':'bolder','textAlign':'center','fontSize':'55px','marginTop':'50px'}}>Password Reset App</h3>
       <div className="mx-auto col-10 col-md-8 col-lg-4 mt-5" style={formStyles}>
           <Form onSubmit={handleSignup}>
              <div>
@@ -112,6 +114,7 @@ const signup =async({name,email,password}) =>{
                 </div>
            </Form>
      </div>
+      </div>
     </>
   )
 }
